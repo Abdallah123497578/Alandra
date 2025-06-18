@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goodbye Alandra 💖 - My Poem</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe0ec, #ffffff, rgb(255, 193, 78));
+      overflow: hidden;
+    }
+    .page {
+      height: 100vh;
+      width: 100vw;
+      padding: 40px;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 2.2rem;
+      color: #ff5ca4;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .poem-container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeIn 1.2s ease;
+    }
+    .poem {
+      white-space: pre-wrap;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-toggle {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #ff5ca4;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 11;
+    }
+    .menu-toggle span {
+      position: absolute;
+      width: 30px;
+      height: 3px;
+      background: white;
+      transition: 0.4s;
+      border-radius: 3px;
+    }
+    .menu-toggle span:nth-child(1) { top: 18px; }
+    .menu-toggle span:nth-child(2) { top: 28px; }
+    .menu-toggle span:nth-child(3) { top: 38px; }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 28px;
+    }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 28px;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ff5ca4;
+      clip-path: circle(0% at 100% 0);
+      transition: clip-path 0.6s ease-in-out;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu.show {
+      clip-path: circle(150% at 100% 0);
+    }
+    .menu a {
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      margin: 15px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .menu.show a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .menu a:hover {
+      text-decoration: underline;
+      color: #fffde7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Toggle -->
+  <div class="menu-toggle" onclick="toggleMenu(this)">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="her-poem.html">Her Poem</a>
+    <a href="my-poem.html">My Poem</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Content -->
+  <div class="page">
+    <h1>My Poem</h1>
+    <div class="poem-container">
+      <p class="poem">
+"I wish I would have told you, Alandra"  
+By Abdallah Biyi-Adedamola  
+June 16th, 2025  
+
+I wish I would have told you, Alandra,  
+Just you and me, sitting all alone,  
+No noise, no crowd — your friend on the phone.  
+I pretended to read, but I couldn’t see,  
+Because all I could think about… was you and me.  
+
+Alandra, your name stayed stuck in my head,  
+Not the headlines, not the words I read.  
+I didn’t care what the pages said,  
+Only the thought of us instead.  
+
+I would’ve waited all day, all night,  
+Just to tell you what felt so right.  
+I would’ve written a book, a song, a line—  
+Just to say I’m glad you’re in my life.  
+
+But the clock moved fast, and the moment passed,  
+And I walked away, wishing it could last.  
+My chest felt heavy, my heart was tight,  
+I should’ve told you before that night.  
+
+So many times, I let it slide,  
+So many nights I tried to hide.  
+So many times — yeah, way too many —  
+Where I had the chance, but didn’t say any.  
+
+And maybe one day, I’ll know the reason why  
+I let that chance just drift on by.  
+But I still wonder, quiet and true…  
+Alandra, are you thinking the same thing too?  
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu(btn) {
+      btn.classList.toggle('open');
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const bgAudio = document.querySelector('audio');
+    bgAudio.volume = 0.3; // Set volume between 0.0 and 1.0
+  });
+</script>
+
+<audio autoplay loop>
+  <source src="bensound-timepassesby.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+</body>
+</html>

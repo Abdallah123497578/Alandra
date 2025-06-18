@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goodbye Alandra 💖 - Contact</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe0ef, #ffd6a5, #ffb2d0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .page {
+      width: 90%;
+      max-width: 600px;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 40px rgba(255, 92, 164, 0.25), 0 0 20px rgba(255, 214, 165, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .page h1 {
+      font-size: 2.5rem;
+      color: #ff5ca4;
+      text-align: center;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #ff5ca4;
+      border-radius: 8px;
+      transition: 0.3s;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #e14b8a;
+      box-shadow: 0 0 8px rgba(255, 92, 164, 0.3);
+    }
+
+    button {
+      background: linear-gradient(45deg, #ff5ca4, #ffd6a5);
+      color: white;
+      padding: 14px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(255, 92, 164, 0.4);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, #e14b8a, #ffb77e);
+    }
+
+    /* Menu styles */
+    .menu-toggle {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #ff5ca4;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 11;
+    }
+
+    .menu-toggle span {
+      position: absolute;
+      width: 30px;
+      height: 3px;
+      background: white;
+      transition: 0.4s;
+      border-radius: 3px;
+    }
+
+    .menu-toggle span:nth-child(1) { top: 18px; }
+    .menu-toggle span:nth-child(2) { top: 28px; }
+    .menu-toggle span:nth-child(3) { top: 38px; }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 28px;
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 28px;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ff5ca4;
+      clip-path: circle(0% at 100% 0);
+      transition: clip-path 0.6s ease-in-out;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu.show {
+      clip-path: circle(150% at 100% 0);
+    }
+
+    .menu a {
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      margin: 15px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .menu.show a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Toggle -->
+  <div class="menu-toggle" onclick="toggleMenu(this)">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="her-poem.html">Her Poem</a>
+    <a href="my-poem.html">My Poem</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Contact Form Page -->
+  <div class="page">
+    <h1>💌 Send a Tribute for Alandra</h1>
+    <form id="contactForm">
+      <input type="text" name="firstName" placeholder="First Name" required />
+      <input type="text" name="lastName" placeholder="Last Name" required />
+      <textarea name="message" rows="4" placeholder="Why is Alandra a good friend or why do you want to be her friend?" required></textarea>
+      <button type="submit">Send Tribute</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMenu(btn) {
+      btn.classList.toggle('open');
+      document.getElementById('menu').classList.toggle('show');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const contactForm = document.getElementById('contactForm');
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const firstName = this.firstName.value.trim();
+        const lastName = this.lastName.value.trim();
+        const message = this.message.value.trim();
+
+        const subject = encodeURIComponent(`Tribute from ${firstName} ${lastName}`);
+        const body = encodeURIComponent(`Message:\n${message}`);
+
+        window.location.href = `mailto:abdallahbiyiadedamola@gmail.com?subject=${subject}&body=${body}`;
+      });
+    });
+  </script>
+
+</body>
+</html>

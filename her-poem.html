@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goodbye Alandra 💖 - Her Poem</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #ffd6ec, #fff, rgb(255, 193, 78));
+      overflow-x: hidden;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      color: #ff5ca4;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .poem {
+      max-width: 800px;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+      white-space: pre-wrap;
+    }
+
+    .menu-toggle {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #ff5ca4;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 11;
+    }
+
+    .menu-toggle span {
+      position: absolute;
+      width: 30px;
+      height: 3px;
+      background: white;
+      transition: 0.4s;
+      border-radius: 3px;
+    }
+
+    .menu-toggle span:nth-child(1) { top: 18px; }
+    .menu-toggle span:nth-child(2) { top: 28px; }
+    .menu-toggle span:nth-child(3) { top: 38px; }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 28px;
+    }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 28px;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ff5ca4;
+      clip-path: circle(0% at 100% 0);
+      transition: clip-path 0.6s ease-in-out;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu.show {
+      clip-path: circle(150% at 100% 0);
+    }
+
+    .menu a {
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      margin: 15px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .menu.show a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .poem {
+        padding: 20px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Toggle -->
+  <div class="menu-toggle" onclick="toggleMenu(this)">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="her-poem.html">Her Poem</a>
+    <a href="my-poem.html">My Poem</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Content -->
+  <div class="page">
+    <h1>Her Poem</h1>
+    <p class="poem">
+June 16th, 2025  
+Written by Alandra Kristen Senanayake  
+“Him”  
+
+The first day I saw him in that class  
+I knew I was gonna enjoy class 24/7  
+And I was right  
+
+Me and him would target each other over any sport activity  
+would laugh  
+would be mad at the teacher  
+would joke around  
+would chase him  
+Me and him grew into close friends  
+
+But now  
+Something has changed  
+It’s the end of the year  
+
+The thought of his name, stuck in my head 24/7  
+Knowing I might never see him again  
+I notice how amazing he is  
+How good of a person he truly is  
+How caring he is  
+How childish he is  
+How much he makes me laugh even if I’m in the mood  
+But mostly how he knows how I am  
+The thought of his name got me smiling too  
+
+I didn’t need to tell him  
+But he wrote me a poem  
+He was the first to ever do that…  
+He probably doesn’t know but I melted in happiness while reading it that I read it more than 10 times by now  
+
+I told him one time “I like plushies”  
+Showed him my plushies too  
+Next time I saw him he had one for me, Ginny  
+
+I was crying  
+He tried to call me and was worried about me till I felt a bit better  
+
+I would bike home  
+He would walk or bike beside me till we separated our own ways  
+I would pray that the clock wouldn’t run by fast but it did…  
+
+I would yap  
+He would listen to me yap  
+I’m glad to have him in my life  
+
+He would ask if I’m free  
+Just to end up calling me or trying to meet up with me  
+That made me smile  
+
+I wouldn’t show I like him  
+But he did  
+He wasn’t that embarrassed to show it too  
+
+I have strict parents  
+He has them too but still tries to find a solution for there to be a us  
+
+I have a brother  
+He asked for permission  
+And now he is trying to ask my dad  
+
+You can already tell  
+He deserves better than this and it's probably 100% true  
+That he got me thinking about him, gotten me to write this too.  
+He doesn’t know it but he knows a lot about me that nobody knows  
+He is the reason I smile more often nowadays  
+Hopefully this isn’t going to be a silent goodbye  
+I pray that it isn’t  
+I pray that I’ll see him again 💖
+    </p>
+  </div>
+
+  <script>
+    function toggleMenu(btn) {
+      btn.classList.toggle('open');
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const bgAudio = document.querySelector('audio');
+    bgAudio.volume = 0.3; // Set volume between 0.0 and 1.0
+  });
+</script>
+
+  <audio autoplay loop>
+  <source src="bensound-intothenight.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+</body>
+</html>

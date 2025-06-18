@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goodbye Alandra 💖 - Gallery</title>
+  <style>
+    /* Same styles as before + gallery */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    .page {
+      height: 100vh;
+      width: 100vw;
+      padding: 40px;
+      box-sizing: border-box;
+      background: #fff;
+      overflow-y: auto;
+    }
+    .page h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ff5ca4;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .gallery img {
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .menu-toggle {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #ff5ca4;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 11;
+    }
+    .menu-toggle span {
+      position: absolute;
+      width: 30px;
+      height: 3px;
+      background: white;
+      transition: 0.4s;
+      border-radius: 3px;
+    }
+    .menu-toggle span:nth-child(1) { top: 18px; }
+    .menu-toggle span:nth-child(2) { top: 28px; }
+    .menu-toggle span:nth-child(3) { top: 38px; }
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 28px;
+    }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 28px;
+    }
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ff5ca4;
+      clip-path: circle(0% at 100% 0);
+      transition: clip-path 0.6s ease-in-out;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu.show {
+      clip-path: circle(150% at 100% 0);
+    }
+    .menu a {
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      margin: 15px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .menu.show a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Toggle -->
+  <div class="menu-toggle" onclick="toggleMenu(this)">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="her-poem.html">Her Poem</a>
+    <a href="my-poem.html">My Poem</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Content -->
+  <div class="page">
+    <h1>Gallery</h1>
+    <div class="gallery">
+      <img src="ala.png" alt="Alandra Photo" />
+      <!-- Add more images if you want -->
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu(btn) {
+      btn.classList.toggle('open');
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const bgAudio = document.querySelector('audio');
+    bgAudio.volume = 0.3; // Set volume between 0.0 and 1.0
+  });
+</script>
+
+<audio autoplay loop>
+  <source src="bensound-sweet.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+</body>
+</html>

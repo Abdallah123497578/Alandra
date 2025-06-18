@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goodbye Alandra 💖 - Home</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ffe6f2, #fff0f7);
+      color: #fff;
+    }
+
+    /* Container */
+    .page {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Background Image + Overlay + Pulse Glow */
+    .landing {
+      background: url('ala.png') center/cover no-repeat;
+      position: relative;
+      z-index: 1;
+    }
+
+    .landing::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 92, 164, 0.6);
+      mix-blend-mode: multiply;
+      z-index: 2;
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+      border-radius: 0;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 20px 6px rgba(255, 92, 164, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 40px 12px rgba(255, 92, 164, 0.8);
+      }
+    }
+
+    h1 {
+      font-size: 4rem;
+      z-index: 3;
+      position: relative;
+      text-shadow:
+        2px 2px 6px rgba(0,0,0,0.6),
+        0 0 20px #ff5ca4;
+      font-weight: 700;
+      animation: fadeScaleIn 1.5s ease forwards;
+    }
+
+    /* Typed subtitle effect */
+    .subtitle {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #ffd0e7;
+      height: 30px;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #ffd0e7;
+      width: 18ch;
+      animation: typing 4s steps(18) infinite alternate,
+                 blink 0.75s step-end infinite;
+      user-select: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes fadeScaleIn {
+      0% {opacity: 0; transform: scale(0.8);}
+      100% {opacity: 1; transform: scale(1);}
+    }
+
+    @keyframes typing {
+      0% { width: 0; }
+      100% { width: 18ch; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Menu Toggle & Menu Styles - same as before but updated colors */
+
+    .menu-toggle {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #ff5ca4;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 11;
+      box-shadow: 0 4px 15px rgba(255,92,164,0.7);
+      transition: background-color 0.3s ease;
+    }
+    .menu-toggle:hover {
+      background-color: #e14b8a;
+    }
+    .menu-toggle span {
+      position: absolute;
+      width: 30px;
+      height: 3px;
+      background: white;
+      transition: 0.4s;
+      border-radius: 3px;
+    }
+    .menu-toggle span:nth-child(1) { top: 18px; }
+    .menu-toggle span:nth-child(2) { top: 28px; }
+    .menu-toggle span:nth-child(3) { top: 38px; }
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 28px;
+    }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 28px;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ff5ca4;
+      clip-path: circle(0% at 100% 0);
+      transition: clip-path 0.6s ease-in-out;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu.show {
+      clip-path: circle(150% at 100% 0);
+    }
+    .menu a {
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      margin: 15px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .menu.show a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .subtitle {
+        font-size: 3rem;
+        width: 14ch;
+        color: white;
+      }
+    }
+  </style>
+</head>
+<body class="landing page">
+
+  <h1>Goodbye Alandra 💖</h1>
+  <div class="subtitle" style="color: white;">Forever in our hearts...</div>
+
+  <!-- Menu Toggle -->
+  <div class="menu-toggle" onclick="toggleMenu(this)">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="her-poem.html">Her Poem</a>
+    <a href="my-poem.html">My Poem</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <script>
+    function toggleMenu(btn) {
+      btn.classList.toggle('open');
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const bgAudio = document.querySelector('audio');
+    bgAudio.volume = 0.3; // Set volume between 0.0 and 1.0
+  });
+</script>
+
+  <audio autoplay loop>
+  <source src="bensound-upward.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+</body>
+</html>
